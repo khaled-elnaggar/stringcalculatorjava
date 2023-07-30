@@ -1,0 +1,9 @@
+First step
+- empty string returns 0, | "" -> "0.0"
+- string with one number returns the same number | "5" -> "5.0"
+- string with 2 numbers returns their sum | "1,2" -> "3.5"
+- string with 2 numbers have decimal places returns their sum (up to 1 decimal digit truncated) | "1.5,1.9" -> "3.4"
+
+  (will be moved to next user story due to lengthy test list)
+- string with more than 2 numbers returns an error
+- string a character, returns an error
