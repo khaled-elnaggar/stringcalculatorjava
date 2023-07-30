@@ -1,5 +1,9 @@
 package stringcalculator;
 
+import stringcalculator.errors.ErrorMessages;
+import stringcalculator.errors.InvalidInputException;
+
+import java.util.Arrays;
 
 public class StringCalculator {
   public String add(String numbers) {
@@ -9,12 +13,16 @@ public class StringCalculator {
     }
 
     String[] stringNumbers = numbers.split(",");
-    if (stringNumbers.length == 1) {
-      return formatToOneDecimalDigit(Double.parseDouble(stringNumbers[0]));
-    }
-
-    double sum = Double.parseDouble(stringNumbers[0]) + Double.parseDouble(stringNumbers[1]);
+    double sum = calculateSum(stringNumbers);
     return formatToOneDecimalDigit(sum);
+  }
+
+  private static double calculateSum(String[] stringNumbers) {
+    try {
+      return Arrays.stream(stringNumbers).mapToDouble(Double::parseDouble).sum();
+    } catch (NumberFormatException exception) {
+      throw new InvalidInputException(ErrorMessages.nonNumberErrorMessage);
+    }
   }
 
   private static String formatToOneDecimalDigit(double sum) {

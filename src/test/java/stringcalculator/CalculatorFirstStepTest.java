@@ -1,8 +1,10 @@
 package stringcalculator;
 
 import org.junit.jupiter.api.Test;
+import stringcalculator.errors.InvalidInputException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorFirstStepTest {
   StringCalculator stringCalculator = new StringCalculator();
@@ -57,6 +59,17 @@ class CalculatorFirstStepTest {
     //Assert
     String expectedSum = "2.7";
     assertEquals(expectedSum, actualSum);
+  }
+
+  @Test
+  void whenAddingAStringWithNonNumberCharacter_ReturnInvalidInputError() {
+    //Arrange
+    String numbers = "1,x";
+
+    //Act
+    //Assert
+    assertThrows(InvalidInputException.class,
+            () -> stringCalculator.add(numbers));
   }
 
 }
