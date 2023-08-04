@@ -16,3 +16,8 @@ Newline as separator:
 
 Negative numbers
 - string with negative numbers return error
+
+Custom separators:
+- support input with custom separators
+- using comma with custom separator returns an error
+- input should have no consecutive custom separators
