@@ -5,6 +5,8 @@ import stringcalculator.errors.InvalidInputException;
 import stringcalculator.validation.StringCalculatorGuard;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 public class StringCalculator {
   public static String defaultSeparator = ",";
@@ -34,7 +36,9 @@ public class StringCalculator {
 
   private double calculateSum(String[] stringNumbers) {
     try {
-      return Arrays.stream(stringNumbers).mapToDouble(Double::parseDouble).sum();
+      double[] doubles = Arrays.stream(stringNumbers).mapToDouble(Double::parseDouble).toArray();
+      StringCalculatorGuard.validateNoNegativeNumbers(doubles);
+      return Arrays.stream(doubles).sum();
     } catch (NumberFormatException exception) {
       throw new InvalidInputException(ErrorMessages.nonNumberErrorMessage);
     }
