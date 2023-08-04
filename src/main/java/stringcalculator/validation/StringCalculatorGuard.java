@@ -16,4 +16,11 @@ public class StringCalculatorGuard {
     }
   }
 
+    public static void validateNoNegativeNumbers(double[] doubles) {
+        double[] negatives = Arrays.stream(doubles).filter(n -> n < 0).toArray();
+
+        if (negatives.length > 0) {
+            throw new InvalidInputException(ErrorMessages.negativeNumbersNotAllowed + Arrays.toString(negatives));
+        }
+    }
 }

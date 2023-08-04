@@ -13,3 +13,6 @@ Many numbers
 Newline as separator:
 - support input with new lines as separators
 - input should have no consecutive separators ("\n,", ",\n", ",,")
+
+Negative numbers
+- string with negative numbers return error
