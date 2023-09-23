@@ -1,0 +1,6 @@
+First step:
+- summing empty string returns 0 | "" -> "0"
+- summing string with number returns that number | "5" -> "5.0"
+- summing string with two numbers returns their sum | "1,2" -> "3.0"
+- summing string with two numbers returns their sum with 1 decimal digit| "1.1,2.2" -> "3.3"
+
