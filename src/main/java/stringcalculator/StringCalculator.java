@@ -9,10 +9,22 @@ public class StringCalculator {
       return "0.0";
     }
 
-    double sum = Arrays.stream(input.split(","))
-            .mapToDouble(Double::parseDouble)
-            .sum();
+    double sum = calculateSum(input);
+    return formatToOneDecimalDigit(sum);
+  }
 
+  private static double calculateSum(String input) {
+    try {
+      return Arrays.stream(input.split(","))
+              .mapToDouble(Double::parseDouble)
+              .sum();
+    } catch (NumberFormatException exception) {
+      throw new InvalidInputException(ErrorMessages.NUMBERS_EXPECTED_BUT_FOUND_NON_NUMBER);
+    }
+  }
+
+  private static String formatToOneDecimalDigit(double sum) {
     return String.format("%.1f", sum);
   }
+
 }

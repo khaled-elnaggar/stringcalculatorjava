@@ -4,3 +4,8 @@ First step:
 - summing string with two numbers returns their sum | "1,2" -> "3.0"
 - summing string with two numbers returns their sum with 1 decimal digit| "1.1,2.2" -> "3.3"
 
+
+
+Many numbers
+- string with 4 numbers return their sum | "1,2,3" -> "6.0"
+- string with non-number returns error | "1,x,2" -> error
