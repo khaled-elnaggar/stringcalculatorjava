@@ -1,10 +1,16 @@
 package stringcalculator;
 
+import stringcalculator.errors.ErrorMessages;
+import stringcalculator.errors.InvalidInputException;
+import stringcalculator.validation.StringCalculatorGuard;
+
 import java.util.Arrays;
 
 public class StringCalculator {
 
   public static String sum(String input) {
+    StringCalculatorGuard.validateNoMissingNumber(input);
+
     if (input.isEmpty()) {
       return "0.0";
     }
@@ -15,7 +21,7 @@ public class StringCalculator {
 
   private static double calculateSum(String input) {
     try {
-      return Arrays.stream(input.split(","))
+      return Arrays.stream(input.split("[,\n]"))
               .mapToDouble(Double::parseDouble)
               .sum();
     } catch (NumberFormatException exception) {

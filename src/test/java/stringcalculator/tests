@@ -1,11 +1,13 @@
 First step:
 - summing empty string returns 0 | "" -> "0"
 - summing string with number returns that number | "5" -> "5.0"
-- summing string with two numbers returns their sum | "1,2" -> "3.0"
+- summing string with two numbers returns their sum | "1,2" -> "3.0", "1,3,5" -> "9.0"
 - summing string with two numbers returns their sum with 1 decimal digit| "1.1,2.2" -> "3.3"
-
-
 
 Many numbers
 - string with 4 numbers return their sum | "1,2,3" -> "6.0"
 - string with non-number returns error | "1,x,2" -> error
+
+Newline as separator
+- string with newlines as separators returns their sum | "1\n2,3" -> "6.0"
+- string with missing number between separators should return error "1,\n2", "1\n,2", "1,,2", "1\n\n2" -> error

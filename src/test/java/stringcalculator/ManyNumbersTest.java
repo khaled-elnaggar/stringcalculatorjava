@@ -1,6 +1,8 @@
 package stringcalculator;
 
 import org.junit.jupiter.api.Test;
+import stringcalculator.errors.ErrorMessages;
+import stringcalculator.errors.InvalidInputException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -25,6 +27,7 @@ class ManyNumbersTest {
     //Arrange
     String input = "1,x,2";
 
+    //Act & Assert
     InvalidInputException exception = assertThrows(InvalidInputException.class,
             () -> StringCalculator.sum(input));
 

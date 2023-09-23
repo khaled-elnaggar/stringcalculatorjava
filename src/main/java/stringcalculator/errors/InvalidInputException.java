@@ -1,4 +1,4 @@
-package stringcalculator;
+package stringcalculator.errors;
 
 public class InvalidInputException extends RuntimeException {
   public InvalidInputException(String s) {
