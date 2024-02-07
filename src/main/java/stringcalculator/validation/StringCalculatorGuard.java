@@ -13,4 +13,5 @@ public class StringCalculatorGuard {
       throw new InvalidInputException(ErrorMessages.NUMBER_EXPECTED_BUT_FOUND_SEPARATOR);
     }
   }
+
 }

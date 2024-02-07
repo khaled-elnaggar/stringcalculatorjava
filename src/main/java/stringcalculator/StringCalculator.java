@@ -21,7 +21,8 @@ public class StringCalculator {
 
   private static double calculateSum(String input) {
     try {
-      return Arrays.stream(input.split("[,\n]"))
+      String[] split = input.split("[,\n]");
+      return Arrays.stream(split)
               .mapToDouble(Double::parseDouble)
               .sum();
     } catch (NumberFormatException exception) {
