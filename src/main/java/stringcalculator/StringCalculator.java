@@ -6,18 +6,22 @@ import stringcalculator.errors.InvalidInputException;
 import java.util.Arrays;
 
 public class StringCalculator {
-  public String add(String numbers) {
 
+  public String add(String numbers) {
+    StringCalculatorGuard.validateNoMissingNumbers(numbers);
+    return addNumbers(numbers);
+  }
+
+  private String addNumbers(String numbers) {
     if (numbers.isEmpty()) {
       return "0.0";
     }
-
-    String[] stringNumbers = numbers.split(",");
+    String[] stringNumbers = numbers.split("[,\n]");
     double sum = calculateSum(stringNumbers);
     return formatToOneDecimalDigit(sum);
   }
 
-  private static double calculateSum(String[] stringNumbers) {
+  private double calculateSum(String[] stringNumbers) {
     try {
       return Arrays.stream(stringNumbers).mapToDouble(Double::parseDouble).sum();
     } catch (NumberFormatException exception) {
@@ -25,7 +29,7 @@ public class StringCalculator {
     }
   }
 
-  private static String formatToOneDecimalDigit(double sum) {
+  private String formatToOneDecimalDigit(double sum) {
     return String.format("%.1f", sum);
   }
 }

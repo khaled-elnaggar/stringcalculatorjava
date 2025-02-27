@@ -8,3 +8,8 @@ First step
 Many numbers
 - string with more than 2 numbers returns the sum | "1.1,2.2,3" -> "6.3"
 - string contains a non-number character, returns an error
+
+
+Newline as separator:
+- support input with new lines as separators
+- input should have no consecutive separators ("\n,", ",\n", ",,")
