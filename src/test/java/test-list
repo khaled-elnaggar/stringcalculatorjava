@@ -1,0 +1,9 @@
+0 (simple) summing empty string returns 0 | "" -> "0.0"
+1 (valid input inside partition) summing string with number returns that number | "5" -> "5.0"
+2 (boundary itself) summing string with two numbers returns their sum | "1,2" -> "3.0"
+3 summing string with two numbers returns their sum with 1 decimal digit| "1.24,1.24" -> "2.4"
+
+
+(
+(invalid outside boundary) summing string with more than two numbers returns error | “1,2,3,4 “ -> Invalid input, cannot add more than 2 numbers”
+summing string with non-number returns error | “1,a,2” Number expected but found non-number
